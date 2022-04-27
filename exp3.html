@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>chacking</title>
+        <style>
+            h2{
+                color: blue;
+            }
+            input
+            {
+                margin: 10px;
+                padding: 10px;
+            }
+            #sasi
+
+            {
+                margin:auto;
+                border:3px solid black;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body bgcolor="pink">
+        <div id="sasi">
+        <center><h2>Name and password chacking</h2></center>
+        <form>
+        
+       
+        
+        <input  type="text" placeholder=" name" id="a"><br><span id="n1"></span><br> 
+        <input  type="text" placeholder="last name" id="d"><br><span id="n4"></span> <br><br>
+        <input type="password" placeholder="password" id="b"><br><span id="n2"></span> <br>   
+        
+        <input type="password" placeholder="conform password" id="c"><br><span id="n3"></span> <br>   
+      
+        <center><input type="button" onclick="check()" value="Next"></center>
+        </form>
+    </div>
+        <script>
+            function check()
+            {
+                var name,password,conform,lastname;
+                name=document.getElementById("a").value;
+                lastname=document.getElementById("d").value;
+                password=document.getElementById("b").value;
+                conform =document.getElementById("c").value;
+                var n1=document.getElementById("n1");
+                var n2=document.getElementById("n2");
+                var n3=document.getElementById("n3");
+                var n4=document.getElementById("n4");
+                x=/[a-zA-Z][a-zA-Z]/;
+                y=/[a-zA-Z0-9]{8,31}/;
+                if(name.match(x)==null)
+                {
+                    n1.textContent="name is not valid";
+                    n1.style.color="red";
+                }
+                if(lastname.match(x)==null)
+                {
+                    n4.textContent="last name is not valid";
+                    n4.style.color="red";
+                }
+                if(password.match(y)==null)
+                {
+                    n2.textContent="password is not valid";
+                    n2.style.color="red";
+                }
+                if(password!=conform)
+                {
+                    n3.textContent="conform  is not valid";
+                    n3.style.color="red";
+                }
+                if((name.match(x)!=null)&&(password.match(y)!==null)&&(conform.match(y)!==null)&&lastname.match(x)!==null)
+                {
+                    document.writeln("verified successfully");
+                }
+
+            }
+        </script>
+
+    </body>
+</html>
